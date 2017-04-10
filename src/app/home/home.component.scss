@@ -1,0 +1,24 @@
+.media-player{
+  border:1px solid #DDDDDD;
+  margin-top:10vh;
+  background-color:#333;
+}
+
+.logo-container{
+  width:30%;
+}
+.episode-container {
+  max-height: 75vh;
+  overflow: auto;
+  padding-left:0;
+  width:30%;
+  .episode {
+    padding:20px;
+    border:1px solid #777;
+  }
+}
+
+.now-playing{
+  width:70%;
+  background-color:#777;
+}

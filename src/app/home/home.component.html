@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row media-player">
+      <div class="episode-container">
+        <img src="../../assets/headerImage.png" alt="The Hogcast">
+        <div *ngFor="let episode of episodes | episode" class="episode"  (click)="selectEpisode(episode.episodeNumber)">
+          <h5>{{episode.name}}</h5>
+        </div>
+    </div>
+    <div class="now-playing">
+      <h1>Now Playing</h1>
+      <h2>{{selectedEpisode?.name}}</h2>
+      <audio controls="controls" src="{{selectedEpisode?.link}}">
+      </audio>
+      <button class="btn btn-primary" (click)="playEpisode()">
+        Play
+      </button>
+      <button class="btn btn-primary" (click)="nextEpisode()">
+        next
+      </button>
+      <button class="btn btn-primary" (click)="previousEpisode()">
+        previous
+      </button>
+    </div>
+  </div>
+</div>

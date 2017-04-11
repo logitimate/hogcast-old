@@ -11,15 +11,11 @@
       <h2>{{selectedEpisode?.name}}</h2>
       <p>{{duration}}</p>
       <p>{{elapsed}}</p>
-      <button class="btn btn-primary" (click)="playPauseEpisode()">
-        {{paused ? 'Pause' : 'Play' }}
-      </button>
-      <button class="btn btn-primary" (click)="nextEpisode()">
-        next
-      </button>
-      <button class="btn btn-primary" (click)="previousEpisode()">
-        previous
-      </button>
+      <div class="controls">
+        <svg (click)="nextEpisode()" class="previous" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="rgba(255,255,255,.4)" height="45px" version="1.1" x="0px" y="0px" viewBox="0 0 381.5 341" enable-background="new 0 0 381.5 341" xml:space="preserve"><polygon points="118.754,169.851 213.753,115.002 308.752,60.152 308.752,169.851 308.752,279.547 213.753,224.698 "/><rect x="60.802" y="60.849" width="56.999" height="218"/></svg>
+        <div class="play" (click)="playPauseEpisode()" [ngClass]="{pause: paused}"></div>
+        <svg (click)="previousEpisode()" class="next" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="rgba(255,255,255,.4)" height="45px" version="1.1" x="0px" y="0px" viewBox="0 0 381.5 341" enable-background="new 0 0 381.5 341" xml:space="preserve"><polygon points="250.801,169.849 155.802,224.697 60.803,279.547 60.803,169.849 60.803,60.153 155.802,115.001 "/><rect x="251.753" y="60.851" width="56.999" height="218"/></svg>
+      </div>
     </div>
   </div>
 </div>

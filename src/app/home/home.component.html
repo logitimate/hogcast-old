@@ -11,8 +11,8 @@
       <h2>{{selectedEpisode?.name}}</h2>
       <audio controls="controls" src="{{selectedEpisode?.link}}">
       </audio>
-      <button class="btn btn-primary" (click)="playEpisode()">
-        Play
+      <button class="btn btn-primary" (click)="playPauseEpisode()">
+        {{paused ? 'Pause' : 'Play' }}
       </button>
       <button class="btn btn-primary" (click)="nextEpisode()">
         next

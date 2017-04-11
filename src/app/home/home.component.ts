@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   episodes: FirebaseListObservable<any>;
   selectedEpisode : any;
   lastEpisode : number;
+  paused: boolean;
   audio;
 
   constructor(private episodeService: EpisodeService) {
@@ -22,17 +23,23 @@ export class HomeComponent implements OnInit {
     this.selectedEpisode = _.filter(this.episodes, episode => episode.episodeNumber == id)[0];
     this.audio.src = this.selectedEpisode.link;
     this.audio.load();
-    this.playEpisode();
+    this.playPauseEpisode();
   };
 
-  playEpisode(){
-    this.audio.play();
+  playPauseEpisode(){
+    if(this.audio.paused) {
+      this.paused = true;
+      this.audio.play()
+    } else {
+      this.paused = false;
+      this.audio.pause()
+    }
   };
 
   nextEpisode() {
-    console.log(this.selectedEpisode.episodeNumber, this.lastEpisode);
-    if(this.selectedEpisode.episodeNumber < this.lastEpisode)
+    if(Number(this.selectedEpisode.episodeNumber) !== this.lastEpisode){
       this.selectEpisode(_.toNumber(this.selectedEpisode.episodeNumber) + 1);
+    }
     else {
       this.selectEpisode(1);
     }
@@ -50,8 +57,9 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.episodeService.episodes
       .subscribe(data => {
-        this.lastEpisode = _.max(_.map(data => data.episodeNumber));
-        this.episodes = data
+        this.lastEpisode = Number(_.max(_.map(data, episode => episode.episodeNumber)));
+        this.episodes = data;
+        console.log(this.lastEpisode);
       });
 
     this.episodeService.selectedEpisode

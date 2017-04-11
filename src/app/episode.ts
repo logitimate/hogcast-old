@@ -6,4 +6,5 @@ export class Episode {
   name: string;
   publishDate: Date;
   episodeNumber: number;
+  imageLink : string;
 }

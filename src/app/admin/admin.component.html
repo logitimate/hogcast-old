@@ -1,7 +1,66 @@
-<label> Episode Number </label>
-<input type="text" class="form-control" [(ngModel)]="episode.episodeNumber">
-<label> Episode Name</label>
-<input type="text" class="form-control" [(ngModel)]="episode.name">
+<br>
+<div class="container">
+  <md-card>
+    <md-card-title-group>
+      <md-card-title>New Episode</md-card-title>
+    </md-card-title-group>
+    <md-card-content>
+      <div class="row">
+        <div class="col-lg-12">
+          <md-input-container>
+            <input mdInput type="text" placeholder="Episode Number" [(ngModel)]="episode.episodeNumber">
+          </md-input-container>
+        </div>
+      </div>
 
+      <div class="row">
+        <div class="col-lg-12">
+          <md-input-container>
+            <input mdInput type="text" placeholder="Episode Name" [(ngModel)]="episode.name">
+          </md-input-container>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12">
+          <md-input-container>
+            <textarea mdInput placeholder="Description" [(ngModel)]="episode.description"></textarea>
+          </md-input-container>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-lg-12">
+          <md-input-container>
+            <input mdInput type="text" placeholder="Duration" [(ngModel)]="episode.duration">
+          </md-input-container>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12">
+          <md-input-container>
+            <input mdInput type="text" placeholder="Keywords" [(ngModel)]="episode.keywords">
+          </md-input-container>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12">
+          <input type="file" (change)="fileUpload($event)" value="Upload Episode"/>
+          <md-progress-bar *ngIf="progress" mode="determinate" [value]="progress" [color]="primary"></md-progress-bar>
+        </div>
+      </div>
+    </md-card-content>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <md-card-actions>
+          <button md-raised-button color="primary" class="pull-right" (click)="createEpisode(episode)">Create Episode</button>
+        </md-card-actions>
+      </div>
+    </div>
+  </md-card>
+</div>
 {{episode | json}}
-<button class="btn btn-primary" (click)="createEpisode(episode)">Create Episode</button>

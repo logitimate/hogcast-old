@@ -1,4 +1,11 @@
-@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import '../node_modules/bootstrap/scss/bootstrap-grid';
+@import '../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css';
 h1,h2,h3,h4,h5 {
   color:#FFF;
 }
+
+.pull-right {
+  float:right;
+}
+
+

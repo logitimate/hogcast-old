@@ -6,7 +6,6 @@ import {Episode} from "./episode";
 export class AdminService {
   constructor(private af: AngularFire) { }
   createEpisode(episode) {
-    console.log(episode);
     this.af.database.object(`/episodes/episode-${episode.episodeNumber}`).set(episode);
   }
 }

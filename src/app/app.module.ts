@@ -11,6 +11,8 @@ import { EpisodePipe } from './episode.pipe';
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
 import {AdminService} from "./admin.service";
+import {MdButtonModule, MdInputModule, MdCardModule, MdProgressBarModule, MdSnackBarModule} from "@angular/material";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 export const firebaseConfig = {
   apiKey: "AIzaSyDhCDxxEf5RCT6QsvfO5y5_k-IwFHxrVmc",
@@ -33,6 +35,12 @@ export const firebaseConfig = {
     FormsModule,
     HttpModule,
     AppRoutingModule,
+    MdButtonModule,
+    MdInputModule,
+    MdCardModule,
+    BrowserAnimationsModule,
+    MdProgressBarModule,
+    MdSnackBarModule,
     AngularFireModule.initializeApp(firebaseConfig)
 
   ],

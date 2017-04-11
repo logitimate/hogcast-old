@@ -9,6 +9,8 @@ import {AngularFireModule} from "angularfire2";
 import {EpisodeService} from "./episode.service";
 import { EpisodePipe } from './episode.pipe';
 import { HomeComponent } from './home/home.component';
+import { AdminComponent } from './admin/admin.component';
+import {AdminService} from "./admin.service";
 
 export const firebaseConfig = {
   apiKey: "AIzaSyDhCDxxEf5RCT6QsvfO5y5_k-IwFHxrVmc",
@@ -23,7 +25,8 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     EpisodePipe,
-    HomeComponent
+    HomeComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,7 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig)
 
   ],
-  providers: [EpisodeService],
+  providers: [EpisodeService, AdminService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

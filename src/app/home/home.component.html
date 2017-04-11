@@ -9,8 +9,8 @@
     <div class="now-playing">
       <h1>Now Playing</h1>
       <h2>{{selectedEpisode?.name}}</h2>
-      <audio controls="controls" src="{{selectedEpisode?.link}}">
-      </audio>
+      <p>{{duration}}</p>
+      <p>{{elapsed}}</p>
       <button class="btn btn-primary" (click)="playPauseEpisode()">
         {{paused ? 'Pause' : 'Play' }}
       </button>

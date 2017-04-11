@@ -14,6 +14,9 @@ export class HomeComponent implements OnInit {
   lastEpisode : number;
   paused: boolean;
   audio;
+  position;
+  elapsed;
+  duration;
 
   constructor(private episodeService: EpisodeService) {
     this.audio = new Audio();
@@ -53,13 +56,27 @@ export class HomeComponent implements OnInit {
     }
   };
 
+  handleTimeUpdate() {
+    const elapsed =  this.audio.currentTime;
+    const duration =  this.audio.duration;
+    this.position = elapsed / duration;
+    this.elapsed = this.formatTime(elapsed);
+    this.duration = this.formatTime(duration);
+  }
+
+  formatTime(seconds) {
+    let minutes:any = Math.floor(seconds / 60);
+    minutes = (minutes >= 10) ? minutes : "0" + minutes;
+    seconds = Math.floor(seconds % 60);
+    seconds = (seconds >= 10) ? seconds : "0" + seconds;
+    return minutes + ":" + seconds;
+  }
 
   ngOnInit() {
     this.episodeService.episodes
       .subscribe(data => {
         this.lastEpisode = Number(_.max(_.map(data, episode => episode.episodeNumber)));
         this.episodes = data;
-        console.log(this.lastEpisode);
       });
 
     this.episodeService.selectedEpisode
@@ -69,5 +86,6 @@ export class HomeComponent implements OnInit {
         this.audio.load()
       });
 
+    this.audio.ontimeupdate = this.handleTimeUpdate.bind(this);
   }
 }

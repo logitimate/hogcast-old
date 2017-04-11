@@ -1,9 +1,9 @@
 <div class="container">
+  <img src="../../assets/headerImage.png" alt="The Hogcast">
   <div class="row media-player">
       <div class="episode-container">
-        <img src="../../assets/headerImage.png" alt="The Hogcast">
         <div *ngFor="let episode of episodes | episode" class="episode"  (click)="selectEpisode(episode.episodeNumber)">
-          <h5>{{episode.name}}</h5>
+          <h3>{{episode.name}}</h3>
         </div>
     </div>
     <div class="now-playing">

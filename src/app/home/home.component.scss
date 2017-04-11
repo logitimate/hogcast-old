@@ -1,7 +1,7 @@
 .media-player{
-  border:1px solid #DDDDDD;
+  border:1px solid #333;
   margin-top:10vh;
-  background-color:#333;
+  background-color: rgba(10,10,10,0.45);
 }
 
 .logo-container{
@@ -11,6 +11,7 @@
   max-height: 75vh;
   overflow: auto;
   padding-left:0;
+  overflow-x:hidden;
   width:30%;
   .episode {
     padding:20px;
@@ -20,7 +21,8 @@
 
 .now-playing{
   width:70%;
-  background-color:#777;
+  background-color: rgba(175,175,175,.25);
+  padding:20px;
 }
 
 .controls{

@@ -59,7 +59,7 @@ export class HomeComponent implements OnInit {
   handleTimeUpdate() {
     const elapsed =  this.audio.currentTime;
     const duration =  this.audio.duration;
-    this.position = elapsed / duration;
+    this.position = (elapsed / duration) * 100;
     this.elapsed = this.formatTime(elapsed);
     this.duration = this.formatTime(duration);
   }

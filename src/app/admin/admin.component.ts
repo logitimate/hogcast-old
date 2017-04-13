@@ -1,4 +1,4 @@
-import {Component, OnInit, Inject} from '@angular/core';
+import {Component, OnInit } from '@angular/core';
 import {AdminService} from "../admin.service";
 import * as firebase from 'firebase';
 import {MdSnackBar} from "@angular/material";

@@ -1,7 +1,6 @@
 .media-player{
-  border:1px solid #333;
   margin-top:10vh;
-  background-color: rgba(10,10,10,0.45);
+  background-color: rgba(0,0,0,0.5);
 }
 
 .logo-container{
@@ -21,7 +20,7 @@
 
 .now-playing{
   width:70%;
-  background-color: rgba(175,175,175,.25);
+  background-color: rgba(150,150,150,0.5);
   padding:20px;
 }
 
@@ -69,4 +68,8 @@
     transform: scale(1.1);
     transition: .25s ease;
   }
+}
+
+md-progress-bar {
+  height:15px;
 }

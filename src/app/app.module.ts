@@ -11,7 +11,10 @@ import { EpisodePipe } from './episode.pipe';
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
 import {AdminService} from "./admin.service";
-import {MdButtonModule, MdInputModule, MdCardModule, MdProgressBarModule, MdSnackBarModule} from "@angular/material";
+import {
+  MdButtonModule, MdInputModule, MdCardModule, MdProgressBarModule, MdSnackBarModule,
+  MdSliderModule, MdToolbarModule
+} from "@angular/material";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 export const firebaseConfig = {
@@ -41,6 +44,8 @@ export const firebaseConfig = {
     BrowserAnimationsModule,
     MdProgressBarModule,
     MdSnackBarModule,
+    MdSliderModule,
+    MdToolbarModule,
     AngularFireModule.initializeApp(firebaseConfig)
 
   ],

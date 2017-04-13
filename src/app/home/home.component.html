@@ -1,5 +1,7 @@
+<md-toolbar color="accent">
+  <img width="250px" src="../../assets/headerImage.png" alt="The Hogcast">
+</md-toolbar>
 <div class="container">
-  <img src="../../assets/headerImage.png" alt="The Hogcast">
   <div class="row media-player">
       <div class="episode-container">
         <div *ngFor="let episode of episodes | episode" class="episode"  (click)="selectEpisode(episode.episodeNumber)">
@@ -9,8 +11,16 @@
     <div class="now-playing">
       <h1>Now Playing</h1>
       <h2>{{selectedEpisode?.name}}</h2>
-      <p>{{duration}}</p>
-      <p>{{elapsed}}</p>
+      <div class="row">
+        <div class="col-lg-6">
+          <h5 class="inline">{{elapsed}}</h5>
+        </div>
+        <div class="col-lg-6">
+          <h5 class="inline pull-right">{{duration}}</h5>
+        </div>
+      </div>
+
+      <md-progress-bar mode="determinate" color="primary" [value]="position"></md-progress-bar>
       <div class="controls">
         <svg (click)="nextEpisode()" class="previous" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="rgba(255,255,255,.4)" height="45px" version="1.1" x="0px" y="0px" viewBox="0 0 381.5 341" enable-background="new 0 0 381.5 341" xml:space="preserve"><polygon points="118.754,169.851 213.753,115.002 308.752,60.152 308.752,169.851 308.752,279.547 213.753,224.698 "/><rect x="60.802" y="60.849" width="56.999" height="218"/></svg>
         <div class="play" (click)="playPauseEpisode()" [ngClass]="{pause: paused}"></div>
